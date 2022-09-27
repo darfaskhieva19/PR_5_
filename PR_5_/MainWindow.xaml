@@ -5,21 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PR_5_"
         mc:Ignorable="d"
-        Title="Знаки зодиака" Height="450" MinHeight="450" Width="750" MinWidth="750">
+        Title="Знаки зодиака и гороскоп" Height="450" MinHeight="450" Width="750" MinWidth="750">
     <Grid>
-        <StackPanel>
-            <TextBlock Style="{StaticResource Header}">Определение знака зодиака</TextBlock>
-            <StackPanel Orientation="Vertical">
-                <TextBlock Style="{StaticResource TStyle}">Выберите, что бы Вы хотели узнать:</TextBlock>
-                <RadioButton Name="RBOrdinary" Margin="10,0,0,0" Checked="OrdinCheck" FontSize="14" FontFamily="Verdana">Знак зодиака по дате рождения</RadioButton>
-                <RadioButton Name="RBOriental" Margin="10,5,0,0" Checked="OrientCheck" FontSize="14" FontFamily="Verdana">Знак зодиака по восточному гороскопу</RadioButton>
-            </StackPanel>
-            <StackPanel Name="SPOrdinary">
-                <WrapPanel Orientation="Horizontal">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Style="{StaticResource Header}">Определение знака зодиака и гороскопа</TextBlock>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Style="{StaticResource TStyle}">Выберите, что бы Вы хотели узнать:</TextBlock>
+                    <RadioButton Name="RBOrdinary" Margin="10,0,0,0" Checked="OrdinCheck">Знак зодиака по дате рождения</RadioButton>
+                    <RadioButton Name="RBOriental" Margin="10,5,0,0" Checked="OrientCheck">Кто Вы по восточному гороскопу</RadioButton>
+                </StackPanel>
+
+                <StackPanel Name="SPOrdinary" Orientation="Horizontal" Visibility="Collapsed">
                     <TextBlock Style="{StaticResource TStyle}">Введите дату:</TextBlock>
                     <TextBox Name="day" Width="35" Margin="7,0,0,0" PreviewTextInput="day_PreviewTextInput"/>
-                    <TextBlock Style="{StaticResource TStyle}">Выберите месяц рождения из списка:</TextBlock>
-                    <ComboBox x:Name="months" Width="150" Margin="10,0,0,0" HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="months_SelectionChanged">
+                    <TextBlock Style="{StaticResource TStyle}">Выберите месяц рождения:</TextBlock>
+                    <ComboBox x:Name="CBMonths" Width="150" Margin="10,0,0,0" HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="CBMonths_SelectionChanged">
                         <ComboBoxItem>Январь</ComboBoxItem>
                         <ComboBoxItem>Февраль</ComboBoxItem>
                         <ComboBoxItem>Март</ComboBoxItem>
@@ -33,20 +41,23 @@
                         <ComboBoxItem>Ноябрь</ComboBoxItem>
                         <ComboBoxItem>Декабрь</ComboBoxItem>
                     </ComboBox>
-                </WrapPanel>
+                </StackPanel>
+
+                <StackPanel Name="SPOriental" Visibility="Collapsed">
+                    <WrapPanel>
+                        <TextBlock Style="{StaticResource TStyle}">Введите год рождения:</TextBlock>
+                        <TextBox Name="year" Width="100" PreviewTextInput="year_PreviewTextInput"/>
+                    </WrapPanel>
+                </StackPanel>
+
+                <StackPanel x:Name="spBtn" Visibility="Collapsed">
+                    <Button x:Name="btnResult" Content="Получить результат" Width="150" Click="Button_Click" Template="{StaticResource BtnResult}"/>
+                </StackPanel>
             </StackPanel>
-            <StackPanel Name="SPOriental">
-                <WrapPanel>
-                    <TextBlock Style="{StaticResource TStyle}">Введите год рождения:</TextBlock>
-                    <TextBox Name="year" Width="100" PreviewTextInput="year_PreviewTextInput"/>
-                </WrapPanel>
-            </StackPanel>
-            <StackPanel>
-                <Button Content="Результат" Width="150" Click="Button_Click" Template="{StaticResource BtnResult}"/>
-            </StackPanel>
-            <StackPanel>
-                <TextBlock Name="result" Style="{StaticResource TStyle}">Ваш знак зодиака:</TextBlock>
-            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="2">
+            <TextBlock Style="{StaticResource TStyle}">Ответ:</TextBlock>
+            <TextBlock Name="result" Margin="5">Здесь будет результат</TextBlock>
         </StackPanel>
     </Grid>
 </Window>
