@@ -5,20 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PR_5_"
         mc:Ignorable="d"
-        Title="Знаки зодиака" Height="450" Width="750">
+        Title="Знаки зодиака" Height="450" MinHeight="450" Width="750" MinWidth="750">
     <Grid>
         <StackPanel>
-            <TextBlock x:Name="Header">Определение знака зодиака</TextBlock>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource TStyle}">Выбор гороскопа:</TextBlock>
-                <RadioButton Name="RBOrdinary" Margin="10,0,0,0" Checked="OrdinCheck" FontSize="14" FontFamily="Verdana">Обычный</RadioButton>
-                <RadioButton Name="RBOriental" Margin="10,0,0,0" Checked="OrientCheck" FontSize="14" FontFamily="Verdana">Восточный</RadioButton>
+            <TextBlock Style="{StaticResource Header}">Определение знака зодиака</TextBlock>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Style="{StaticResource TStyle}">Выберите, что бы Вы хотели узнать:</TextBlock>
+                <RadioButton Name="RBOrdinary" Margin="10,0,0,0" Checked="OrdinCheck" FontSize="14" FontFamily="Verdana">Знак зодиака по дате рождения</RadioButton>
+                <RadioButton Name="RBOriental" Margin="10,5,0,0" Checked="OrientCheck" FontSize="14" FontFamily="Verdana">Знак зодиака по восточному гороскопу</RadioButton>
             </StackPanel>
-            <StackPanel Name="SPOrdinary" Visibility="Collapsed">
+            <StackPanel Name="SPOrdinary">
                 <WrapPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource TStyle}">Введите дату рождения:</TextBlock>
-                    <TextBox Name="day" Width="35" Margin="7,0,0,0"/>
-                    <TextBlock Style="{StaticResource TStyle}">Выберите месяц своего рождения:</TextBlock>
+                    <TextBlock Style="{StaticResource TStyle}">Введите дату:</TextBlock>
+                    <TextBox Name="day" Width="35" Margin="7,0,0,0" PreviewTextInput="day_PreviewTextInput"/>
+                    <TextBlock Style="{StaticResource TStyle}">Выберите месяц рождения из списка:</TextBlock>
                     <ComboBox x:Name="months" Width="150" Margin="10,0,0,0" HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="months_SelectionChanged">
                         <ComboBoxItem>Январь</ComboBoxItem>
                         <ComboBoxItem>Февраль</ComboBoxItem>
@@ -35,18 +35,17 @@
                     </ComboBox>
                 </WrapPanel>
             </StackPanel>
-            <StackPanel Name="SPOriental"  Visibility="Collapsed">
+            <StackPanel Name="SPOriental">
                 <WrapPanel>
                     <TextBlock Style="{StaticResource TStyle}">Введите год рождения:</TextBlock>
-                    <TextBox Name="year" Width="35"/>
+                    <TextBox Name="year" Width="100" PreviewTextInput="year_PreviewTextInput"/>
                 </WrapPanel>
             </StackPanel>
             <StackPanel>
-                <Button Content="Результат" Width="150" Click="Button_Click"/>
+                <Button Content="Результат" Width="150" Click="Button_Click" Template="{StaticResource BtnResult}"/>
             </StackPanel>
             <StackPanel>
                 <TextBlock Name="result" Style="{StaticResource TStyle}">Ваш знак зодиака:</TextBlock>
-                <TextBlock Style="{StaticResource TStyle}">Ваш знак зодиака по восточному гороскопу: </TextBlock>
             </StackPanel>
         </StackPanel>
     </Grid>

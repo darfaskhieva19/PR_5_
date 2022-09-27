@@ -8,10 +8,20 @@
             <Style.Setters>
                 <Setter Property="FontFamily" Value="Verdana"/>
                 <Setter Property="FontSize" Value="14"/>
-                <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="Margin" Value="10,10,10,10"/>
             </Style.Setters>
         </Style>
-
+        <Style TargetType="TextBlock" x:Key="Header">
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="Margin" Value="0,15,0,0"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <ControlTemplate TargetType="Button" x:Key="BtnResult">
+            <Border CornerRadius="20" BorderThickness="1" BorderBrush="#42AAFF" Background="#C7EDFF" Height="40" Width="150">
+                <ContentControl Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            </Border>
+        </ControlTemplate>
     </Application.Resources>
 </Application>
