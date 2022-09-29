@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:PR_5_"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        
         <Style x:Key="TStyle" TargetType="TextBlock">
             <Style.Setters>
                 <Setter Property="FontFamily" Value="Franklin Gothic"/>
@@ -11,6 +12,7 @@
                 <Setter Property="Margin" Value="10,10,10,10"/>
             </Style.Setters>
         </Style>
+        
         <Style TargetType="TextBlock" x:Key="Header">
             <Setter Property="FontFamily" Value="Franklin Gothic"/>
             <Setter Property="Margin" Value="0,15,0,0"/>
@@ -18,10 +20,19 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
+        
         <ControlTemplate TargetType="Button" x:Key="BtnResult">
-            <Border CornerRadius="20" BorderThickness="1" BorderBrush="#42AAFF" Background="#C7EDFF" Height="40" Width="150">
-                <ContentControl Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+            <Border CornerRadius="20" BorderThickness="2" BorderBrush="#42AAFF" Background="#C7EDFF" Height="40" Width="150">
+                <ContentControl Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Content="{TemplateBinding Content}"/>
             </Border>
         </ControlTemplate>
+
+        <Style x:Key="boxStyle" TargetType="ComboBox">
+            <Style.Setters>
+                <Setter Property="FontFamily" Value="Franklin Gothic"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="Margin" Value="3,3,0,0"/>
+            </Style.Setters>
+        </Style>
     </Application.Resources>
 </Application>

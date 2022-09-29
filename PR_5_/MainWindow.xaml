@@ -8,7 +8,7 @@
         Title="Знаки зодиака и гороскоп" Height="450" MinHeight="450" Width="750" MinWidth="750">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="60"/>
             <RowDefinition/>
             <RowDefinition Height="70"/>
         </Grid.RowDefinitions>
@@ -27,7 +27,7 @@
                     <TextBlock Style="{StaticResource TStyle}">Введите дату:</TextBlock>
                     <TextBox Name="day" Width="35" Margin="7,0,0,0" PreviewTextInput="day_PreviewTextInput"/>
                     <TextBlock Style="{StaticResource TStyle}">Выберите месяц рождения:</TextBlock>
-                    <ComboBox x:Name="CBMonths" Width="150" Margin="10,0,0,0" HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="CBMonths_SelectionChanged">
+                    <ComboBox x:Name="CBMonths" Width="150" Style="{StaticResource boxStyle}" HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="CBMonths_SelectionChanged">
                         <ComboBoxItem>Январь</ComboBoxItem>
                         <ComboBoxItem>Февраль</ComboBoxItem>
                         <ComboBoxItem>Март</ComboBoxItem>

@@ -48,84 +48,84 @@ namespace PR_5_
             switch (CBMonths.SelectedIndex)
             {
                 case 0:
-                    if (int.Parse(day.Text) > 31 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 31 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В январе 31 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 1:
-                    if (int.Parse(day.Text) > 28 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 28 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В феврале 28 дней. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 2:
-                    if (int.Parse(day.Text) > 31 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 31 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В марте 31 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 3:
-                    if (int.Parse(day.Text) > 30 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 30 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В апреле 30 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 4:
-                    if (int.Parse(day.Text) > 31 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 31 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В мае 31 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 5:
-                    if (int.Parse(day.Text) > 30 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 30 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В июне 30 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 6:
-                    if (int.Parse(day.Text) > 31 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 31 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В июле 31 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 7:
-                    if (int.Parse(day.Text) > 31 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 31 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В августе 31 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 8:
-                    if (int.Parse(day.Text) > 30 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 30 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В сентябре 30 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 9:
-                    if (int.Parse(day.Text) > 31 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 31 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В октябре 31 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 10:
-                    if (int.Parse(day.Text) > 30 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 30 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В ноябре 30 день. Повторите ввод");
                         day.Text = "";
                     }
                     break;
                 case 11:
-                    if (int.Parse(day.Text) > 31 || int.Parse(day.Text) < 1)
+                    if (Convert.ToInt32(day.Text) > 31 || Convert.ToInt32(day.Text) < 1)
                     {
                         MessageBox.Show("В декабре 31 день. Повторите ввод");
                         day.Text = "";
@@ -140,6 +140,45 @@ namespace PR_5_
             {
                 if (RBOrdinary.IsChecked == true)
                 {
+                    //switch (CBMonths.SelectedIndex)
+                    //{
+                    //    case 0:
+
+                    //        break;
+                    //    case 1:
+
+                    //        break;
+                    //    case 2:
+
+                    //        break;
+                    //    case 3:
+
+                    //        break;
+                    //    case 4:
+
+                    //        break;
+                    //    case 5:
+
+                    //        break;
+                    //    case 6:
+
+                    //        break;
+                    //    case 7:
+
+                    //        break;
+                    //    case 8:
+
+                    //        break;
+                    //    case 9:
+
+                    //        break;
+                    //    case 10:
+
+                    //        break;
+                    //    case 11:
+
+                    //        break;
+                    //}
                     if (((Convert.ToInt32(day.Text) >= 22) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 11) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 20) && CBMonths.SelectedIndex == 0))
                     {
                         result.Text = "Ваш знак зодиака - Козерог";
@@ -265,13 +304,13 @@ namespace PR_5_
                     }
                     else
                     {
-                        MessageBox.Show("Что-то не так");
+                        MessageBox.Show("Что-то пошло не так", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
             catch
             {
-                MessageBox.Show("Что-то пошло не так.Ошибка");
+                MessageBox.Show("Что-то пошло не так", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
