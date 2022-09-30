@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +19,42 @@ namespace PR_5_
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    
+    struct horoscope
+    {
+        public string day;
+        public string month;  
+        public string year;   
+    }
+    //public string hor(string day, string month, string year)
+    //{
+    //    return day + ";" + month + ";" + year + ";";
+    //}
+
+    //static void hor(string path, List<horoscope> L) //метод для 
+    //{
+    //    using (StreamReader sr = new StreamReader(path))
+    //    {
+    //        while (sr.EndOfStream != true)
+    //        {
+    //            string[] arr = sr.ReadLine().Split(';');
+    //            L.Add(new horoscope()
+    //            {
+    //                day = arr[0],
+    //                month = arr[1],
+    //                year = arr[2],
+    //            });
+    //        }
+    //    }
+    //}
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+
         private void OrdinCheck(object sender, RoutedEventArgs e) //выбран обычный гороскоп
         {
             RBOrdinary.Visibility = Visibility.Visible;
@@ -140,45 +171,6 @@ namespace PR_5_
             {
                 if (RBOrdinary.IsChecked == true)
                 {
-                    //switch (CBMonths.SelectedIndex)
-                    //{
-                    //    case 0:
-
-                    //        break;
-                    //    case 1:
-
-                    //        break;
-                    //    case 2:
-
-                    //        break;
-                    //    case 3:
-
-                    //        break;
-                    //    case 4:
-
-                    //        break;
-                    //    case 5:
-
-                    //        break;
-                    //    case 6:
-
-                    //        break;
-                    //    case 7:
-
-                    //        break;
-                    //    case 8:
-
-                    //        break;
-                    //    case 9:
-
-                    //        break;
-                    //    case 10:
-
-                    //        break;
-                    //    case 11:
-
-                    //        break;
-                    //}
                     if (((Convert.ToInt32(day.Text) >= 22) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 11) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 20) && CBMonths.SelectedIndex == 0))
                     {
                         result.Text = "Ваш знак зодиака - Козерог";
@@ -297,6 +289,7 @@ namespace PR_5_
                     else if (Convert.ToInt32(year.Text) % 12 == 10)
                     {
                         result.Text = "По восточному гороскопу Вы - лошадь";
+                        //year.Clear();
                     }
                     else if (Convert.ToInt32(year.Text) % 12 == 11)
                     {
@@ -314,7 +307,7 @@ namespace PR_5_
             }
         }
 
-        private void day_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void day_PreviewTextInput(object sender, TextCompositionEventArgs e) //ввод чисел
         {
             if (!Char.IsDigit(e.Text, 0))
             {
@@ -322,7 +315,7 @@ namespace PR_5_
             }
         }
 
-        private void year_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void year_PreviewTextInput(object sender, TextCompositionEventArgs e) //ввод чисел
         {
             if (!Char.IsDigit(e.Text, 0))
             {

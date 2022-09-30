@@ -19,15 +19,15 @@
             <StackPanel>
                 <StackPanel Orientation="Vertical">
                     <TextBlock Style="{StaticResource TStyle}">Выберите, что бы Вы хотели узнать:</TextBlock>
-                    <RadioButton Name="RBOrdinary" Margin="10,0,0,0" Checked="OrdinCheck">Знак зодиака по дате рождения</RadioButton>
-                    <RadioButton Name="RBOriental" Margin="10,5,0,0" Checked="OrientCheck">Кто Вы по восточному гороскопу</RadioButton>
+                    <RadioButton Name="RBOrdinary" Margin="10,0,0,0" Checked="OrdinCheck" FontFamily="Georgia" FontSize="16">Знак зодиака по дате рождения</RadioButton>
+                    <RadioButton Name="RBOriental" Margin="10,5,0,0" Checked="OrientCheck" FontFamily="Georgia" FontSize="16">Кто Вы по восточному гороскопу</RadioButton>
                 </StackPanel>
 
                 <StackPanel Name="SPOrdinary" Orientation="Horizontal" Visibility="Collapsed" Style="{StaticResource SP}">
                     <TextBlock Style="{StaticResource TStyle}">Введите дату:</TextBlock>
-                    <TextBox Name="day" Width="35" Margin="7,0,0,0" PreviewTextInput="day_PreviewTextInput"/>
+                    <TextBox Name="day" Width="60" Height="20" Margin="7,0,0,0" PreviewTextInput="day_PreviewTextInput"/>
                     <TextBlock Style="{StaticResource TStyle}">Выберите месяц рождения:</TextBlock>
-                    <ComboBox x:Name="CBMonths" Width="150"  HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="CBMonths_SelectionChanged">
+                    <ComboBox x:Name="CBMonths" Width="120" Height="23" HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="CBMonths_SelectionChanged">
                         <ComboBoxItem>Январь</ComboBoxItem>
                         <ComboBoxItem>Февраль</ComboBoxItem>
                         <ComboBoxItem>Март</ComboBoxItem>
@@ -46,18 +46,18 @@
                 <StackPanel Name="SPOriental" Visibility="Collapsed" Style="{StaticResource SP}">
                     <WrapPanel>
                         <TextBlock Style="{StaticResource TStyle}">Введите год рождения:</TextBlock>
-                        <TextBox Name="year" Width="100" PreviewTextInput="year_PreviewTextInput"/>
+                        <TextBox Name="year" Width="90" Height="20" PreviewTextInput="year_PreviewTextInput"/>
                     </WrapPanel>
                 </StackPanel>
 
-                <StackPanel x:Name="spBtn" Visibility="Collapsed" Style="{StaticResource SP}">
+                <StackPanel x:Name="spBtn" Visibility="Collapsed" Margin="65">
                     <Button x:Name="btnResult" Content="Получить результат"  Click="Button_Click" Template="{StaticResource BtnResult}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="2">
             <TextBlock Style="{StaticResource TStyle}">Ответ:</TextBlock>
-            <TextBlock Name="result" Margin="5">Здесь будет результат</TextBlock>
+            <TextBlock Name="result" Margin="3" FontFamily="Georgia" FontSize="14">Здесь будет результат</TextBlock>
         </StackPanel>
     </Grid>
 </Window>
