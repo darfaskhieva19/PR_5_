@@ -23,11 +23,11 @@
                     <RadioButton Name="RBOriental" Margin="10,5,0,0" Checked="OrientCheck">Кто Вы по восточному гороскопу</RadioButton>
                 </StackPanel>
 
-                <StackPanel Name="SPOrdinary" Orientation="Horizontal" Visibility="Collapsed">
+                <StackPanel Name="SPOrdinary" Orientation="Horizontal" Visibility="Collapsed" Style="{StaticResource SP}">
                     <TextBlock Style="{StaticResource TStyle}">Введите дату:</TextBlock>
                     <TextBox Name="day" Width="35" Margin="7,0,0,0" PreviewTextInput="day_PreviewTextInput"/>
                     <TextBlock Style="{StaticResource TStyle}">Выберите месяц рождения:</TextBlock>
-                    <ComboBox x:Name="CBMonths" Width="150" Style="{StaticResource boxStyle}" HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="CBMonths_SelectionChanged">
+                    <ComboBox x:Name="CBMonths" Width="150"  HorizontalAlignment="Left" IsEnabled="True" SelectionChanged="CBMonths_SelectionChanged">
                         <ComboBoxItem>Январь</ComboBoxItem>
                         <ComboBoxItem>Февраль</ComboBoxItem>
                         <ComboBoxItem>Март</ComboBoxItem>
@@ -43,15 +43,15 @@
                     </ComboBox>
                 </StackPanel>
 
-                <StackPanel Name="SPOriental" Visibility="Collapsed">
+                <StackPanel Name="SPOriental" Visibility="Collapsed" Style="{StaticResource SP}">
                     <WrapPanel>
                         <TextBlock Style="{StaticResource TStyle}">Введите год рождения:</TextBlock>
                         <TextBox Name="year" Width="100" PreviewTextInput="year_PreviewTextInput"/>
                     </WrapPanel>
                 </StackPanel>
 
-                <StackPanel x:Name="spBtn" Visibility="Collapsed">
-                    <Button x:Name="btnResult" Content="Получить результат" Width="150" Click="Button_Click" Template="{StaticResource BtnResult}"/>
+                <StackPanel x:Name="spBtn" Visibility="Collapsed" Style="{StaticResource SP}">
+                    <Button x:Name="btnResult" Content="Получить результат"  Click="Button_Click" Template="{StaticResource BtnResult}"/>
                 </StackPanel>
             </StackPanel>
         </Grid>

@@ -22,17 +22,23 @@
         </Style>
         
         <ControlTemplate TargetType="Button" x:Key="BtnResult">
-            <Border CornerRadius="20" BorderThickness="2" BorderBrush="#42AAFF" Background="#C7EDFF" Height="40" Width="150">
-                <ContentControl Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Franklin Gothic" Content="{TemplateBinding Content}"/>
+            <Border CornerRadius="20" BorderThickness="2" BorderBrush="#42AAFF" Background="#C7EDFF" Height="40" Width="250">
+                <ContentControl  VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Franklin Gothic" FontSize="20" Content="{TemplateBinding Content}"/>
             </Border>
         </ControlTemplate>
 
-        <Style x:Key="boxStyle" TargetType="ComboBox">
+        <Style x:Key="SP" TargetType="StackPanel">
+            <Style.Setters>
+                <Setter Property="Margin" Value="20"/>
+            </Style.Setters>
+        </Style>
+
+        <!--<Style x:Key="boxStyle" TargetType="ComboBox">
             <Style.Setters>
                 <Setter Property="FontFamily" Value="Franklin Gothic"/>
                 <Setter Property="FontSize" Value="18"/>
                 <Setter Property="Margin" Value="3,3,0,0"/>
             </Style.Setters>
-        </Style>
+        </Style>-->
     </Application.Resources>
 </Application>
