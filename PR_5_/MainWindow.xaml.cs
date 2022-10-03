@@ -22,16 +22,17 @@ namespace PR_5_
     
     struct horoscope
     {
-        public string day;
-        public string month;  
-        public string year;   
+        public int day;
+        public int month;  
+        public int year;   
     }
     //public string hor(string day, string month, string year)
     //{
     //    return day + ";" + month + ";" + year + ";";
     //}
 
-    //static void hor(string path, List<horoscope> L) //метод для 
+    //List<horoscope> horoscop = new List<horoscope>();
+    //static void ReadData(string path, List<horoscope> L)
     //{
     //    using (StreamReader sr = new StreamReader(path))
     //    {
@@ -40,13 +41,16 @@ namespace PR_5_
     //            string[] arr = sr.ReadLine().Split(';');
     //            L.Add(new horoscope()
     //            {
-    //                day = arr[0],
-    //                month = arr[1],
-    //                year = arr[2],
+    //                day = Convert.ToInt32(arr[0]),
+    //                month = Convert.ToInt32(arr[1]),
+    //                year = Convert.ToInt32(arr[2]),
     //            });
     //        }
     //    }
     //}
+
+    //ReadData("horoscopeEastern.csv", goroskop);
+
 
     public partial class MainWindow : Window
     {
@@ -63,6 +67,8 @@ namespace PR_5_
             SPOriental.Visibility = Visibility.Collapsed;
             RBOrdinary.IsEnabled = true;
             result.Text = "";
+            day.Text = "";
+            CBMonths.Text = "";
         }
         private void OrientCheck(object sender, RoutedEventArgs e) //выбран восточный гороскоп
         {
@@ -72,6 +78,7 @@ namespace PR_5_
             SPOrdinary.Visibility = Visibility.Collapsed;
             RBOriental.IsEnabled = true;
             result.Text = "";
+            year.Text = "";
         }
 
         private void CBMonths_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -171,133 +178,143 @@ namespace PR_5_
             {
                 if (RBOrdinary.IsChecked == true)
                 {
-                    if (((Convert.ToInt32(day.Text) >= 22) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 11) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 20) && CBMonths.SelectedIndex == 0))
+                    if (day.Text != "" && CBMonths.Text != "")
                     {
-                        result.Text = "Ваш знак зодиака - Козерог";
-                        day.Text = "";
-                        CBMonths.Text = "";
+                        if (((Convert.ToInt32(day.Text) >= 22) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 11) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 20) && CBMonths.SelectedIndex == 0))
+                        {
+                            result.Text = "Ваш знак зодиака - Козерог";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 21) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 0) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 18) && CBMonths.SelectedIndex == 1))
+                        {
+                            result.Text = "Ваш знак зодиака - Водолей";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 19) && (Convert.ToInt32(day.Text) <= 28) && CBMonths.SelectedIndex == 1) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 20) && CBMonths.SelectedIndex == 2))
+                        {
+                            result.Text = "Ваш знак зодиака - Рыбы";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 21) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 2) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 19) && CBMonths.SelectedIndex == 3))
+                        {
+                            result.Text = "Ваш знак зодиака - Овен";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 20) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 3) || (Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 20) && CBMonths.SelectedIndex == 4)
+                        {
+                            result.Text = "Ваш знак зодиака - Телец";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 21) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 4) || (Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 21) && CBMonths.SelectedIndex == 5)
+                        {
+                            result.Text = "Ваш знак зодиака - Близнецы";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 21) && (Convert.ToInt32(day.Text) <= 30) && CBMonths.SelectedIndex == 5) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 22) && CBMonths.SelectedIndex == 6))
+                        {
+                            result.Text = "Ваш знак зодиака - Рак";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 23) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 6) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 22) && CBMonths.SelectedIndex == 7))
+                        {
+                            result.Text = "Ваш знак зодиака - Лев";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 23) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 7) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 22) && CBMonths.SelectedIndex == 8))
+                        {
+                            result.Text = "Ваш знак зодиака - Дева";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 23) && (Convert.ToInt32(day.Text) <= 30) && CBMonths.SelectedIndex == 8) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 23) && CBMonths.SelectedIndex == 9))
+                        {
+                            result.Text = "Ваш знак зодиака - Весы";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 24) && (Convert.ToInt32(day.Text) <= 30) && CBMonths.SelectedIndex == 9) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 22) && CBMonths.SelectedIndex == 10))
+                        {
+                            result.Text = "Ваш знак зодиака - Скорпион";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
+                        else if (((Convert.ToInt32(day.Text) >= 23) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 10) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 21) && CBMonths.SelectedIndex == 11))
+                        {
+                            result.Text = "Ваш знак зодиака - Стрелец";
+                            day.Text = "";
+                            CBMonths.Text = "";
+                        }
                     }
-                    else if (((Convert.ToInt32(day.Text) >= 21) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 0) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 18) && CBMonths.SelectedIndex == 1))
+                    else
                     {
-                        result.Text = "Ваш знак зодиака - Водолей";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 19) && (Convert.ToInt32(day.Text) <= 28) && CBMonths.SelectedIndex == 1) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 20) && CBMonths.SelectedIndex == 2))
-                    {
-                        result.Text = "Ваш знак зодиака - Рыбы";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 21) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 2) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 19) && CBMonths.SelectedIndex == 3))
-                    {
-                        result.Text = "Ваш знак зодиака - Овен";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 20) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 3) || (Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 20) && CBMonths.SelectedIndex == 4)
-                    {
-                        result.Text = "Ваш знак зодиака - Телец";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 21) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 4) || (Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 21) && CBMonths.SelectedIndex == 5)
-                    {
-                        result.Text = "Ваш знак зодиака - Близнецы";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 21) && (Convert.ToInt32(day.Text) <= 30) && CBMonths.SelectedIndex == 5) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 22) && CBMonths.SelectedIndex == 6))
-                    {
-                        result.Text = "Ваш знак зодиака - Рак";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 23) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 6) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 22) && CBMonths.SelectedIndex == 7))
-                    {
-                        result.Text = "Ваш знак зодиака - Лев";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 23) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 7) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 22) && CBMonths.SelectedIndex == 8))
-                    {
-                        result.Text = "Ваш знак зодиака - Дева";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 23) && (Convert.ToInt32(day.Text) <= 30) && CBMonths.SelectedIndex == 8) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 23) && CBMonths.SelectedIndex == 9))
-                    {
-                        result.Text = "Ваш знак зодиака - Весы";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 24) && (Convert.ToInt32(day.Text) <= 30) && CBMonths.SelectedIndex == 9) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 22) && CBMonths.SelectedIndex == 10))
-                    {
-                        result.Text = "Ваш знак зодиака - Скорпион";
-                        day.Text = "";
-                        CBMonths.Text = "";
-                    }
-                    else if (((Convert.ToInt32(day.Text) >= 23) && (Convert.ToInt32(day.Text) <= 31) && CBMonths.SelectedIndex == 10) || ((Convert.ToInt32(day.Text) >= 1) && (Convert.ToInt32(day.Text) <= 21) && CBMonths.SelectedIndex == 11))
-                    {
-                        result.Text = "Ваш знак зодиака - Стрелец";
-                        day.Text = "";
-                        CBMonths.Text = "";
+                        MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else if (RBOriental.IsChecked == true)
                 {
-                    if (Convert.ToInt32(year.Text) % 12 == 0)
+                    if (year.Text != "")
                     {
-                        result.Text = "По восточному гороскопу Вы - обезьяна";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 1)
-                    {
-                        result.Text = "По восточному гороскопу Вы - петух";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 2)
-                    {
-                        result.Text = "По восточному гороскопу Вы - собака";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 3)
-                    {
-                        result.Text = "По восточному гороскопу Вы - свинья";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 4)
-                    {
-                        result.Text = "По восточному гороскопу Вы - крыса";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 5)
-                    {
-                        result.Text = "По восточному гороскопу Вы - бык";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 6)
-                    {
-                        result.Text = "По восточному гороскопу Вы - тигр";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 7)
-                    {
-                        result.Text = "По восточному гороскопу Вы - кролик";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 8)
-                    {
-                        result.Text = "По восточному гороскопу Вы - дракон";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 9)
-                    {
-                        result.Text = "По восточному гороскопу Вы - змея";
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 10)
-                    {
-                        result.Text = "По восточному гороскопу Вы - лошадь";
-                        //year.Clear();
-                    }
-                    else if (Convert.ToInt32(year.Text) % 12 == 11)
-                    {
-                        result.Text = "По восточному гороскопу Вы - коза";
+                        if (Convert.ToInt32(year.Text) % 12 == 0)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Обезьяна";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 1)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Петух";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 2)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Собака";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 3)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Свинья";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 4)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Крыса";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 5)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Бык";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 6)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Тигр";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 7)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Кролик";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 8)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Дракон";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 9)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Змея";
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 10)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Лошадь";
+                            //year.Clear();
+                        }
+                        else if (Convert.ToInt32(year.Text) % 12 == 11)
+                        {
+                            result.Text = "По восточному гороскопу Вы - Коза";
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Что-то пошло не так", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Заполните поле", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
@@ -322,5 +339,10 @@ namespace PR_5_
                 e.Handled = true;
             }
         }
+        private void btnFile_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }

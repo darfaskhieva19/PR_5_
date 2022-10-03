@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PR_5_"
         mc:Ignorable="d"
-        Title="Знаки зодиака и гороскоп" Height="450" MinHeight="450" Width="750" MinWidth="750">
-    <Grid>
+        Title="Знаки зодиака и гороскоп" Height="550" MinHeight="450" Width="750" MinWidth="750">
+    <Grid Background="{StaticResource GridBG}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="55"/>
             <RowDefinition/>
-            <RowDefinition Height="70"/>
+            <RowDefinition Height="75"/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <TextBlock Style="{StaticResource Header}">Определение знака зодиака и гороскопа</TextBlock>
@@ -58,6 +59,9 @@
         <StackPanel Grid.Row="2">
             <TextBlock Style="{StaticResource TStyle}">Ответ:</TextBlock>
             <TextBlock Name="result" Margin="3" FontFamily="Georgia" FontSize="14">Здесь будет результат</TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="3">
+            <Button x:Name="btnFile" Content="Файл" Click="btnFile_Click" Template="{StaticResource BtnResult}"/>
         </StackPanel>
     </Grid>
 </Window>
