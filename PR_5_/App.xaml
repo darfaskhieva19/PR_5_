@@ -35,7 +35,7 @@
         </Style>
 
         <LinearGradientBrush x:Key="GridBG">
-            <GradientStop Color="#B1E7FE" Offset="1" />
+            <GradientStop Color="#85BAFF" Offset="1" />
             <GradientStop Color="#99E0FE" Offset="0.5" />
             <GradientStop Color="#B1E7FE" Offset="0"/>
         </LinearGradientBrush>
